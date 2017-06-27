@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var arr = [23,2,44,1,45,5]
+		for(var i=0; i<arr.length; i++){
+			for(var j=0; j<arr.length-i; j++){
+				if(arr[j]>arr[j+1]){
+					var res = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = res;
+				}
+			}
+		}
+//		alert(arr);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

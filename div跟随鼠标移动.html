@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			background: yellowgreen;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var oDiv = document.getElementsByTagName("div")[0];
+			var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+			document.onmousemove = function (ev){
+				var oEvent = ev||event;
+				oDiv.style.left = oEvent.clientX+"px";
+				oDiv.style.top = oEvent.clientY+scrollTop+"px";
+			}
+			
+		}
+	</script>
+</head>
+<body style="height:2000px;">
+	<div></div>
+</body>
+</html>

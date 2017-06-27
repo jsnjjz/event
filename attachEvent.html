@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function(){
+			var oBtn = document.getElementsByTagName("button")[0];
+//			oBtn.attachEvent("onclick",function (){
+//				alert("a");
+//			})
+//			
+//			oBtn.attachEvent("onclick",function (){
+//				alert("b");
+//			})
+//			
+//			oBtn.addEventListener("click",function (){
+//				alert("a");
+//			},false)
+//			
+//			oBtn.addEventListener("click",function (){
+//				alert("b");
+//			},false)
+			
+			function myAddEvent (obj,ev,fn){
+				if(obj.attachEvent){
+					obj.attachEvent("on"+ev,fn);
+				}else{
+					obj.addEventListener(ev,fn,false);
+				}
+			}
+			
+			myAddEvent(oBtn,"click",function (){
+				alert("a");
+			})
+			
+			myAddEvent(oBtn,"click",function (){
+				alert("b");
+			})
+			
+		}
+	</script>
+</head>
+<body>
+	<button>按钮</button>
+</body>
+</html>

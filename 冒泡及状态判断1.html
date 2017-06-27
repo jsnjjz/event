@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			display: none;
+			width: 200px;
+			height: 200px;
+			background: hotpink;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var oBtn = document.getElementsByTagName("button")[0];
+			var oDiv = document.getElementsByTagName("div")[0];
+			var sta = 0;
+			oBtn.onclick = function (ev){
+				var oEvent = ev||event;
+				oEvent.cancelBubble=true;
+				if(sta == 0){
+					oDiv.style.display = "block";
+					sta = 1;
+				}else {
+					oDiv.style.display = "none";
+					sta = 0;
+				}
+			}
+			document.onclick = function (ev){
+				var oEvent = ev||event;
+				oDiv.style.display = "none";
+				sta = 0;
+			}
+			oDiv.onclick = function (ev){
+				var oEvent = ev||event;
+				oEvent.cancelBubble=true;
+//				document.onclick = null;
+//				oDiv.onclick = null;
+			}
+		}
+	</script>
+</head>
+<body>
+	<button>点击</button>
+	<div></div>
+</body>
+</html>

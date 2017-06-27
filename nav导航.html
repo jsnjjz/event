@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			position: relative;
+			margin: 100px;
+			overflow: hidden;
+			background: hotpink;
+		}
+		li {
+			float: left;
+			position: relative;
+			list-style: none;
+		}
+		li a {
+			display: block;
+			position: relative;
+			z-index: 1;
+			padding: 10px 20px;
+			text-decoration: none;
+			color: #000;
+		}
+		li a:hover {
+			color: #fff;
+			transition: 400ms;
+		}
+		.on {
+			background: green;
+		}
+		.on a {
+			color: #fff;
+		}
+		.bg {
+			position: absolute;
+			background: green;
+		}
+	</style>
+	<script src="jquery.min.js"></script>
+	<script>
+		$(function (){
+			(function (){
+				var init_l = $(".on").position().left;
+				var init_h = $(".on").height();
+				$(".bg").css({"height":init_h+"px","left":init_l+"px"});
+			})()
+			
+			$("li").mouseover(function (){
+				var wid = $(this).width();
+				var on_l = $(this).position().left;
+				$(".bg").stop().animate({"width": wid,"left": on_l});
+			})
+			 
+			
+			$("li").mouseout(function (){
+				var init_l = $(".on").position().left;
+				var init_h = $(".on").height();
+				var init_w = $(".on").width();
+			$(".bg").stop().animate({"width":init_w,"height":init_h,"left":init_l})
+			})
+			
+		})
+	</script>
+</head>
+<body>
+	<ul>
+		<li><a href="">首页</a></li>
+		<li><a href="">产品介绍</a></li>
+		<li class="on"><a href="">功能演示</a></li>
+		<li><a href="">关于我们</a></li>
+		<li><a href="">联系我们</a></li>
+		<li class="bg"></li>
+	</ul>
+</body>
+</html>

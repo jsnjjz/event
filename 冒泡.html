@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1 {
+			width: 300px;
+			height: 300px;
+			background: yellowgreen;
+			display: none;
+		}
+
+	</style>
+	<script>
+		window.onload = function(){
+			var oDiv1 = document.getElementById("div1");
+			var oBtn = document.getElementById("btn");
+			var sta = 1;
+			oBtn.onclick = function (ev){
+				var oEvent = ev||event;
+				oEvent.cancelBubble=true;
+				if(sta == 1){
+					oDiv1.style.display = "block";
+					sta = 0;
+				}else{
+					oDiv1.style.display = "none";
+					sta = 1;
+				}
+			}
+		
+			document.onclick = function (){
+				oDiv1.style.display = "none";
+				sta = 1;
+			}
+		}
+	</script>
+	<script>
+		
+	</script>
+</head>
+<body>
+	<button id="btn">按钮</button>
+	<div id="div1"></div>
+</body>
+</html>
