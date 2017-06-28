@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function(){
+			var oBtn = document.getElementsByTagName("button")[0];
+//			oBtn.addEventListener("click",function (){
+//				alert("a");
+//			},false)
+//			
+//			oBtn.addEventListener("click",function (){
+//				alert("b");
+//			},false)
+			
+//			oBtn.attachEvent("onclick",function (){
+//				alert("gfhsh")
+//			});
+//			
+//			oBtn.attachEvent("onclick",function (){
+//				alert("aaa");
+//			});
+			
+			function bind(obj,event,fn,type){
+				if(obj.attachEvent){
+					obj.attachEvent("on"+event,fn);
+				}else {
+					obj.addEventListener(event,fn,type);
+				}
+			}
+
+			
+			bind(oBtn,"click",function (){
+				alert(1);
+			},false);
+			
+			bind(oBtn,"click",function (){
+				alert(2);
+			},false);
+			
+		}
+	</script>
+</head>
+<body>
+	<button>点击</button>
+</body>
+</html>

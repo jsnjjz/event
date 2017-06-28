@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function(){
+			var oBtn = document.getElementById("btn");
+			var oBox = document.getElementById("box");
+			var num = 4;
+			oBtn.onclick = function (){
+				num++;
+				var oLi = document.createElement("li");
+				oLi.innerHTML = 1111*num;
+				oBox.appendChild(oLi);
+			}
+			oBox.onmouseover = function (ev){
+				var oEvent = ev||window.event;
+				var target = oEvent.target||oEvent.srcElement;
+				if(target.nodeName.toLowerCase() == "li"){
+					target.style.background = "yellowgreen";
+				}
+			}
+			oBox.onmouseout = function (ev){
+				var oEvent = ev||window.event;
+				var target = oEvent.target||oEvent.srcElement;
+				if(target.nodeName.toLowerCase() == "li"){
+					target.style.background = "";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="btn">添加</button>
+	<ul id="box">
+		<li>1111</li>
+		<li>2222</li>
+		<li>3333</li>
+		<li>4444</li>
+	</ul>
+</body>
+</html>

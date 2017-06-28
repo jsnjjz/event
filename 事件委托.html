@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload = function(){
+			var oBtn = document.getElementById("btn");
+			var oBox = document.getElementById("box");
+			
+//			oBtn.onclick = function (){
+//				var oLi = document.createElement("li");
+//				oLi.innerHTML = "new";
+//				oBox.appendChild(oLi);
+//			}
+//			
+//			oBox.onmouseover = function (ev){
+//				var oEvent = ev||event;
+//				var target = oEvent.srcElement || oEvent.target;
+//				if(target.nodeName.toLowerCase() == "li"){
+//					
+//					target.style.background = "green";
+//				}
+//			}
+//			
+//			oBox.onmouseout = function (ev){
+//				var oEvent = ev||event;
+//				var target = oEvent.srcElement || oEvent.target;
+//				target.style.background = "";
+//			}
+			
+			oBtn.onclick = function (){
+				var oLi = document.createElement("li");
+				oLi.innerHTML = "new";
+				oBox.appendChild(oLi);
+			}
+			
+			oBox.onmouseover = function (ev){
+				var oEvent = ev||window.event;   
+				var target = oEvent.srcElement || oEvent.target;
+				
+				if(target.nodeName.toLowerCase() == "li"){
+					target.style.background = "green";
+				}
+			}
+			
+			oBox.onmouseout = function (ev){
+				var oEvent = ev||window.event;
+				var target = oEvent.srcElement || oEvent.target;
+				if(target.nodeName.toLowerCase() == "li"){
+					target.style.background = "";
+				}
+			}
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<button id="btn">add</button>
+	<ul id="box">
+		<li>fgfgh</li>
+		<li>fgfgh</li>
+		<li>fgfgh</li>
+		<li>fgfgh</li>
+	</ul>
+</body>
+</html>
